@@ -27,6 +27,11 @@ T1, T2 = Ta, Ta  # initial temps
 # --- Logging ---
 t_log, T1_log, T2_log, P_log, setpoint_log = [], [], [], [], []
 
+
+# auto-tuning stage
+
+
+
 for i in range(n_steps):
     t = i * dt
 
