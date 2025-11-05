@@ -4,11 +4,12 @@ from scipy.integrate import solve_ivp
 from pid_lib import PIDController
 
 HEATER_MAX_POWER = 50.0  # W
+AMBIENT_TEMPERATURE = 10.0  # W
 
 # --- Plant parameters ---
 C1, C2 = 5.0, 20.0  # J/°C
 R12, R1a, R2a = 2.0, 5.0, 10.0  # °C/W
-Ta = 20.0  # ambient °C
+Ta = AMBIENT_TEMPERATURE  # ambient °C
 
 # --- Create PID controller ---
 pid = PIDController(
@@ -29,7 +30,6 @@ t_log, T1_log, T2_log, P_log, setpoint_log = [], [], [], [], []
 
 
 # auto-tuning stage
-
 
 
 for i in range(n_steps):
