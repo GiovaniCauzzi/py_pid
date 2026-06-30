@@ -12,8 +12,8 @@ Ta = 20.0  # ambient °C
 
 # --- Create PID controller ---
 pid = PIDController(
-    Kp=3.0, Ki=0.2, Kd=0.0,
-    setpoint=60.0,
+    Kp=3.0, Ki=0.3, Kd=10.0,
+    setpoint=80.0,
     output_limits=(0, HEATER_MAX_POWER),          # Power limits (0–10 W)
     integral_limits=(0, HEATER_MAX_POWER)       # Optional anti-windup
 )
@@ -59,7 +59,7 @@ plt.figure(figsize=(10,5))
 plt.subplot(2,1,1)
 plt.plot(t_log, T1_log, label='Heater T₁')
 plt.plot(t_log, T2_log, label='Sensor T₂ (feedback)')
-plt.plot(t_log, setpoint_log, label='Sensor T₂ (feedback)')
+plt.plot(t_log, setpoint_log, label='Setpoint')
 # plt.axhline(pid.setpoint, color='r', linestyle='--', label='Setpoint')
 plt.ylabel("Temperature [°C]")
 plt.legend()
